@@ -19,3 +19,8 @@ updates:
     schedule:
       interval: "daily"
 
+  - package-ecosystem: "docker"
+    directory: "/fromfork"
+    schedule:
+      interval: "daily"
+
