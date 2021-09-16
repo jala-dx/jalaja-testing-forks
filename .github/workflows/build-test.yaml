@@ -30,12 +30,11 @@ jobs:
           repository: ${{github.event.pull_request.head.repo.full_name}}
 
       - name: Import environment variables from a file
-        id: import-env
         shell: bash
         run: |
           while read line; do
             echo "$line" >> $GITHUB_ENV
-          done < .image.env
+          done < ".image.env"
           echo  After updating GITHUB_ENV, John $GITHUB_ENV
 
       # Runs a single command using the runners shell
