@@ -36,6 +36,8 @@ jobs:
             echo "$line" >> $GITHUB_ENV
           done < ".image.env"
           echo  After updating GITHUB_ENV, John $GITHUB_ENV
+          echo Jalaja 1... $MINIO_TAG
+          echo Jalaja 2... "${MINIO_TAG}"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
