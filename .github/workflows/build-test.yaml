@@ -34,6 +34,7 @@ jobs:
         run: |
           while read line; do
             echo "$line" >> $GITHUB_ENV
+            echo Reading file: "${line}"
           done < ".image.env"
           echo  After updating GITHUB_ENV, John $GITHUB_ENV
           echo Jalaja 1... $MINIO_TAG
