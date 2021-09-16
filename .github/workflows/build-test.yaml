@@ -44,7 +44,7 @@ jobs:
           echo github event name
           echo ${{github.event_name}}
 
-      - uses: actions/dotenv-action@v0.2.7
+      - uses: falti/dotenv-action@v0.2.7
         id: dotenv
         with: 
           path: .image.env 
