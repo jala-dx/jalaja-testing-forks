@@ -32,13 +32,10 @@ jobs:
       - name: Import environment variables from a file
         shell: bash
         run: |
-          while read line; do
-            echo "$line" >> $GITHUB_ENV
-            echo Reading file: "${line}"
-          done < ".image.env"
-          echo  After updating GITHUB_ENV, John $GITHUB_ENV
-          echo Jalaja 1... $MINIO_TAG
-          echo Jalaja 2... "${MINIO_TAG}"
+          echo "echoing before GITHUBENV .... ${GITHUB_ENV}" 
+          cat ".image.env" >> $GITHUB_ENV
+          echo "echoing after GITHUBENV .... ${GITHUB_ENV}" 
+          echo "Jalaja ... ${MINIO_TAG}"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
