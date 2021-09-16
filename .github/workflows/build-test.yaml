@@ -29,14 +29,6 @@ jobs:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
 
-      - name: Import environment variables from a file
-        shell: bash
-        run: |
-          echo "echoing before GITHUBENV .... ${GITHUB_ENV}" 
-          cat ".image.env" >> $GITHUB_ENV
-          echo "echoing after GITHUBENV .... ${GITHUB_ENV}" 
-          echo "Jalaja ... ${MINIO_TAG}"
-
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world, running jalaja test!
@@ -52,6 +44,12 @@ jobs:
           echo github event name
           echo ${{github.event_name}}
 
+      - uses: actions/dotenv-action@v0.2.7
+        id: dotenv
+        path: .image.env 
 
-       
+      - name: using dotenv action
+        shell: bash
+        run: |
+          echo ${{ steps.dotenv.outputs.minio_tag }}
 
