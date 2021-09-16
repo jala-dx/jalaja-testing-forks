@@ -46,7 +46,8 @@ jobs:
 
       - uses: actions/dotenv-action@v0.2.7
         id: dotenv
-        path: .image.env 
+        with: 
+          path: .image.env 
 
       - name: using dotenv action
         shell: bash
